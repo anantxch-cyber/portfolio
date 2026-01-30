@@ -24,5 +24,5 @@ This portfolio is deployed using **Netlify** with **GitHub auto-deploy** enabled
 Any changes pushed to the `main` branch are automatically deployed.
 
 ## 📬 Contact
-- LinkedIn: (add your LinkedIn profile link)
-- GitHub: https://github.com/anantxch-cyber
+- LinkedIn: https://www.linkedin.com/in/anant-kumar-agnihotri-5a1950392/
+- GitHub:   https://github.com/anantxch-cyber
