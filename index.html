@@ -689,6 +689,129 @@
       color: white;
       cursor: pointer;
     }
+    /* ===== Projects Section Polish ===== */
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-desc {
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+
+.project-insight {
+  margin-top: 10px;
+  padding-left: 14px;
+  border-left: 3px solid #00c6ff;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.project-insight span {
+  display: block;
+  font-weight: 600;
+  color: #00c6ff;
+  margin-bottom: 4px;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 198, 255, 0.15);
+}
+.projects-container {
+  margin-top: 20px;
+}
+
+.project-card {
+  max-width: 900px;
+  padding: 26px 28px;
+}
+.project-card::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 60px;
+  background: linear-gradient(90deg, #00c6ff, transparent);
+  margin-bottom: 14px;
+}
+.type-line {
+  opacity: 0;
+  overflow: hidden;
+  padding-right: 6px;
+  font-size: 0.95rem;
+}
+.project-card {
+  min-height: 200px;
+}
+
+.career-intent {
+  margin-top: -10px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  opacity: 0.85;
+  color: #cfd9e3;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(600px at 50% 20%, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(800px at 80% 60%, rgba(99,102,241,0.15), transparent 65%);
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.profile-container {
+  position: relative;
+}
+
+.profile-container::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,189,248,0.35), transparent 70%);
+  z-index: -1;
+}
+
+.hero h1 {
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+.btn-modern {
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 0 rgba(56,189,248,0);
+  transition: all 0.3s ease;
+}
+
+.btn-modern:hover {
+  box-shadow: 0 0 25px rgba(56,189,248,0.35);
+  transform: translateY(-2px);
+}
+
+
+
+
   </style>
 </head>
 
@@ -730,6 +853,10 @@
         Crafting robust and scalable software solutions. <br>
         Focused on <b>Java</b>, <b>DSA</b>, and the future of <b>AI</b>.
       </p>
+      <p class="career-intent">
+  Looking for internship or entry-level opportunities in AI/ML or Web Development.
+</p>
+
       <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:30px;">
   <a href="Anant_Kumar_Agnihotri_Resume.pdf" download class="btn-modern">
     Download Resume
@@ -760,7 +887,7 @@
       <div class="about-text glass-card">
         <h3>Driven by Curiosity</h3>
         <p>
-          I am a Computer Science Engineering student (Batch 2028) at Parul Institute. My coding journey began with a
+          I am a Computer Science Engineering student (Batch 2028) at Parul Institute of Engineering and technology. My coding journey began with a
           simple "Hello World" and has transformed into a deep passion for <b>algorithmic problem solving</b> and
           <b>system design</b>.
         </p>
@@ -768,6 +895,11 @@
           I don't just write code; I strive to write <i>clean, efficient, and maintainable</i> code. I am actively
           upskilling and building <b>clean, fast, and responsive web applications</b> while continuously strengthening my <b>problem-solving skills</b> to stay ahead of the curve.
         </p>
+       <p>
+      <strong style="font-weight:600;">
+       "I like building things from scratch and learning by breaking them."
+      </strong>
+      </p>
       </div>
       <div class="stats-grid">
         <div class="stat-item glass-card">
@@ -793,6 +925,33 @@
       </div>
     </div>
   </section>
+  <!-- Projects -->
+<section id="projects">
+  <div class="section-header">
+    <h2>My <span class="text-gradient">Projects</span></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="projects-container">
+
+    <div class="project-card glass-card">
+      <h3 class="project-title">Portfolio Website</h3>
+  <p class="project-desc type-line"
+   data-text="A personal portfolio website built using HTML, CSS, and JavaScript.">
+</p>
+
+<div class="project-insight type-line"
+     data-text="What I learned: Responsive design, clean layout structuring, and deployment using Netlify.">
+</div>
+
+<div class="project-insight type-line"
+     data-text="Tech challenge I solved: Fixed layout and responsiveness issues using flexbox and media queries.">
+</div>
+
+
+  </div>
+</section>
+
 
   <!-- Skills -->
   <section id="skills">
@@ -1054,6 +1213,34 @@
     });
 
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lines = document.querySelectorAll(".type-line");
+  let delay = 0;
+
+  lines.forEach((line) => {
+    const text = line.getAttribute("data-text");
+    line.textContent = "";
+
+    setTimeout(() => {
+      line.style.opacity = 1;
+      let i = 0;
+
+      const typing = setInterval(() => {
+        if (i < text.length) {
+          line.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 45);
+    }, delay);
+
+    delay += text.length * 45 + 400;
+  });
+});
+</script>
+
 </body>
 
 </html>
