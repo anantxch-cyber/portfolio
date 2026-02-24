@@ -580,6 +580,159 @@
     .mp-info h3 { font-family:var(--f-hand); font-size:1.3rem; color:var(--text); margin-bottom:6px; }
     .mp-info p  { font-size:.88rem; color:var(--muted); line-height:1.6; }
 
+    /* ── PORTFOLIO PREVIEW PANELS ── */
+    .portfolio-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+    }
+
+    .preview-panel {
+      position: relative;
+      border-right: 1px solid rgba(255,255,255,.06);
+      display: flex; flex-direction: column;
+    }
+    .preview-panel:last-child { border-right: none; }
+
+    /* floating section label */
+    .pp-label {
+      position: absolute; top: 40px; left: 8px; z-index: 10;
+      background: rgba(56,189,248,.15); border: 1px solid rgba(56,189,248,.3);
+      color: var(--sky); font-size: .55rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; letter-spacing: .08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    /* browser chrome bar */
+    .pp-bar {
+      background: #111c35;
+      padding: 7px 10px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      flex-shrink: 0;
+    }
+    .pp-dots { display:flex; gap:4px; }
+    .pp-dots span { width:8px; height:8px; border-radius:50%; display:block; }
+    .panel-hero   .pp-dots span:nth-child(1) { background:#ff5f57; }
+    .panel-hero   .pp-dots span:nth-child(2) { background:#febc2e; }
+    .panel-hero   .pp-dots span:nth-child(3) { background:#28c840; }
+    .panel-skills .pp-dots span:nth-child(1) { background:#ff5f57; }
+    .panel-skills .pp-dots span:nth-child(2) { background:#febc2e; }
+    .panel-skills .pp-dots span:nth-child(3) { background:#28c840; }
+    .panel-projects .pp-dots span:nth-child(1) { background:#ff5f57; }
+    .panel-projects .pp-dots span:nth-child(2) { background:#febc2e; }
+    .panel-projects .pp-dots span:nth-child(3) { background:#28c840; }
+
+    .pp-url {
+      flex:1; background:#0a1628; border:1px solid rgba(255,255,255,.07);
+      border-radius:4px; padding:3px 8px;
+      font-size:.5rem; color:var(--muted);
+      text-align: center; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+
+    .pp-body { flex:1; overflow:hidden; }
+
+    /* ticker */
+    .pp-ticker {
+      height: 12px;
+      background: linear-gradient(90deg,#38bdf8,#818cf8,#c084fc,#818cf8,#38bdf8);
+      background-size: 300% auto;
+      animation: gradshift 3s linear infinite;
+    }
+
+    /* nav strip */
+    .pp-nav-strip {
+      display: flex; align-items:center; gap:6px; padding:5px 8px;
+      background: rgba(2,6,23,.9);
+      border-bottom: 1px solid rgba(56,189,248,.08);
+    }
+    .pp-logo-dot { width:5px; height:5px; border-radius:50%; background:var(--purple); display:block; }
+    .pp-navlink { width:18px; height:3px; background:rgba(255,255,255,.12); border-radius:2px; }
+    .pp-resume-pill {
+      background: var(--grad); color:#020617;
+      font-size:.48rem; font-weight:700;
+      padding:2px 7px; border-radius:20px;
+      font-family: var(--f-hand);
+    }
+
+    /* hero area */
+    .pp-hero-area {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap:10px; padding:10px;
+      background: linear-gradient(135deg,#020617,#0c1529);
+      position: relative; overflow:hidden;
+    }
+    .pp-hero-area::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);
+      background-size:18px 18px;
+    }
+    .pp-hero-left { position:relative; z-index:1; display:flex; flex-direction:column; gap:4px; }
+    .pp-avail-tag {
+      display:inline-block; background:rgba(56,189,248,.1);
+      border:1px solid rgba(56,189,248,.25); color:var(--sky);
+      font-size:.48rem; font-weight:600; padding:1px 6px; border-radius:3px; width:fit-content;
+    }
+    .pp-line { height:3px; background:rgba(255,255,255,.08); border-radius:2px; margin-top:3px; }
+    .pp-btn-p { background:var(--grad); color:#020617; font-size:.48rem; font-weight:700; padding:3px 8px; border-radius:4px; }
+    .pp-btn-g { border:1px solid rgba(255,255,255,.15); color:var(--muted); font-size:.48rem; padding:3px 8px; border-radius:4px; }
+
+    .pp-hero-card {
+      position:relative; z-index:1;
+      background:rgba(15,23,42,.75); border:1px solid rgba(56,189,248,.18);
+      border-radius:8px; padding:8px;
+      display:flex; flex-direction:column; align-items:center; gap:4px;
+    }
+    .pp-pfp-wrap { position:relative; width:28px; height:28px; }
+    .pp-pfp-ring {
+      position:absolute; inset:-2px; border-radius:50%;
+      background:conic-gradient(#38bdf8,#818cf8,#c084fc,#38bdf8);
+      animation:ring-spin 3s linear infinite;
+    }
+    .pp-pfp {
+      position:absolute; inset:2px; border-radius:50%;
+      background:linear-gradient(135deg,#1e3a5f,#0f2744);
+    }
+    .pp-stat-box {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06);
+      border-radius:4px; padding:3px 2px; text-align:center;
+      display:flex; flex-direction:column;
+    }
+    .pp-stat-box span { font-family:var(--f-hand); font-size:.58rem; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; }
+    .pp-stat-box small { font-size:.38rem; color:var(--muted); }
+
+    /* skill panel */
+    .pp-skill-card {
+      background:rgba(15,23,42,.6); border:1px solid rgba(255,255,255,.07);
+      border-radius:6px; padding:6px;
+    }
+    .pp-skill-title { font-family:var(--f-hand); font-size:.52rem; color:var(--sky); margin-bottom:4px; }
+    .pp-bar-row { display:flex; align-items:center; gap:5px; margin-bottom:3px; }
+    .pp-bar-row span { font-size:.45rem; color:var(--muted); width:32px; flex-shrink:0; }
+    .pp-bar-track { flex:1; height:3px; background:rgba(255,255,255,.06); border-radius:2px; overflow:hidden; }
+    .pp-bar-fill { height:100%; border-radius:2px; }
+
+    /* project mini cards inside panel */
+    .pp-proj-card {
+      background:rgba(15,23,42,.6); border:1px solid rgba(255,255,255,.07);
+      border-radius:6px; overflow:hidden;
+    }
+    .pp-proj-img {
+      height:48px;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+    }
+    .pp-meme-grid {
+      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr;
+    }
+    .pp-meme-grid img { width:100%; height:100%; object-fit:cover; filter:brightness(.8); }
+    .pp-proj-info { padding:5px 6px 6px; }
+
     /* ── CERTIFICATIONS ── */
     #certifications { background:rgba(255,255,255,.015); }
     .cert-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
@@ -741,14 +894,14 @@
     <span class="ticker-item">YOLOv8 · MediaPipe · OpenCV</span>
     <span class="ticker-item">Java · Python · DSA</span>
     <span class="ticker-item">Also made a monkey meme detector 🐒</span>
-    <span class="ticker-item">Currently drinking chai and debugging</span>
+    <span class="ticker-item">Currently drinking coffee and debugging</span>
     <span class="ticker-item">Open to Internships</span>
     <span class="ticker-item">Built a phone detector that yells in Hindi</span>
     <span class="ticker-item">CSE-AI&ML @ Parul Institute Batch 2028</span>
     <span class="ticker-item">YOLOv8 · MediaPipe · OpenCV</span>
     <span class="ticker-item">Java · Python · DSA</span>
     <span class="ticker-item">Also made a monkey meme detector 🐒</span>
-    <span class="ticker-item">Currently drinking chai and debugging</span>
+    <span class="ticker-item">Currently drinking coffee and debugging</span>
   </div>
 </div>
 
@@ -821,8 +974,8 @@
       <div class="hero-stats">
         <div class="hs"><div class="hs-val" data-count="2028" data-suffix="">2028</div><div class="hs-lbl">Graduating</div></div>
         <div class="hs"><div class="hs-val" data-count="2" data-suffix="">2</div><div class="hs-lbl">Real Projects</div></div>
-        <div class="hs"><div class="hs-val" data-count="3" data-suffix="+">3+</div><div class="hs-lbl">Certifications</div></div>
-        <div class="hs"><div class="hs-val">∞</div><div class="hs-lbl">Chai consumed</div></div>
+        <div class="hs"><div class="hs-val" data-count="5" data-suffix="+">5+</div><div class="hs-lbl">Certifications</div></div>
+        <div class="hs"><div class="hs-val">∞</div><div class="hs-lbl">Coffee consumed</div></div>
       </div>
 
       <div class="social-row">
@@ -860,7 +1013,7 @@
       </div>
       <ul class="fun-facts">
         <li><span class="ico">🎓</span> CSE-AI&ML @ Parul Institute of Engineering & Technology</li>
-        <li><span class="ico">☕</span> Genuinely cannot code without chai. It's a dependency at this point.</li>
+        <li><span class="ico">☕</span> Genuinely cannot code without coffee. It's a dependency at this point.</li>
         <li><span class="ico">🧠</span> I use my own phone detector when I'm studying. It works (mostly).</li>
         <li><span class="ico">🐵</span> Built a monkey meme app. My friends use it every day. That's a success metric.</li>
         <li><span class="ico">🌙</span> Most breakthroughs happen between 11pm and 2am. That's just facts.</li>
@@ -910,7 +1063,7 @@
     <div class="skill-chunk reveal" style="grid-column:1/-1;">
       <div class="skill-chunk-title">🛠️ Tools I use daily</div>
       <div class="skill-pills">
-         <span class="spill-skill main">VS Code</span>
+        <span class="spill-skill main">VS Code</span>
         <span class="spill-skill main">Git / GitHub</span>
         <span class="spill-skill main">IntelliJ IDEA</span>
         <span class="spill-skill main">PyGame</span>
@@ -1032,17 +1185,156 @@
       </div>
     </div>
 
-    <!-- Portfolio mini -->
-    <div class="mini-proj">
-      <div class="mp-icon">🌐</div>
-      <div class="mp-info">
-        <h3>This Portfolio Website</h3>
-        <p>Built from scratch — no templates, no Wix. Pure HTML, CSS, JS. Learned flexbox, grid, animations and deployed on Netlify. You're literally looking at a project right now.</p>
-        <div class="proj-tags" style="margin-top:10px;">
-          <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Netlify</span>
+    <!-- Portfolio Website — full card with browser mockup -->
+    <div class="proj-card" style="grid-column:1/-1;">
+
+      <!-- Multi-panel website preview -->
+      <div class="portfolio-preview">
+
+        <!-- Panel 1 — Hero section -->
+        <div class="preview-panel panel-hero">
+          <div class="pp-label">Hero</div>
+          <div class="pp-bar">
+            <div class="pp-dots"><span></span><span></span><span></span></div>
+            <div class="pp-url">anantagnihotri-dev.netlify.app</div>
+          </div>
+          <div class="pp-body">
+            <div class="pp-ticker"></div>
+            <div class="pp-nav-strip">
+              <span class="pp-logo-dot"></span>
+              <span style="font-family:var(--f-hand);color:var(--sky);font-size:.55rem;font-weight:700;">anant.dev</span>
+              <div style="flex:1;display:flex;justify-content:center;gap:6px;">
+                <span class="pp-navlink"></span><span class="pp-navlink"></span><span class="pp-navlink"></span>
+              </div>
+              <div class="pp-resume-pill">Resume</div>
+            </div>
+            <div class="pp-hero-area">
+              <div class="pp-hero-left">
+                <div class="pp-avail-tag">● Available</div>
+                <div style="font-family:var(--f-hand);font-size:.82rem;line-height:1.25;color:var(--text);margin-top:4px;">
+                  Hey, I'm Anant<br/>I build <em style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal;">AI stuff</em><br/>that works
+                </div>
+                <div class="pp-line" style="width:80%;margin-top:5px;"></div>
+                <div class="pp-line" style="width:65%;"></div>
+                <div style="display:flex;gap:5px;margin-top:6px;">
+                  <div class="pp-btn-p">↓ Resume</div>
+                  <div class="pp-btn-g">Projects →</div>
+                </div>
+              </div>
+              <div class="pp-hero-card">
+                <div class="pp-pfp-wrap"><div class="pp-pfp-ring"></div><div class="pp-pfp"></div></div>
+                <div class="pp-line" style="width:70%;margin-top:4px;"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;margin-top:4px;">
+                  <div class="pp-stat-box"><span>2028</span><small>Grad</small></div>
+                  <div class="pp-stat-box"><span>2</span><small>Projects</small></div>
+                  <div class="pp-stat-box"><span>3+</span><small>Certs</small></div>
+                  <div class="pp-stat-box"><span>∞</span><small>Coffee</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2 — Skills section -->
+        <div class="preview-panel panel-skills">
+          <div class="pp-label">Skills</div>
+          <div class="pp-bar">
+            <div class="pp-dots"><span></span><span></span><span></span></div>
+            <div class="pp-url">anantagnihotri-dev.netlify.app/#skills</div>
+          </div>
+          <div class="pp-body" style="background:#0a1425;">
+            <div style="padding:10px 10px 6px;border-bottom:1px solid rgba(255,255,255,.04);">
+              <div style="font-family:var(--f-hand);font-size:.5rem;color:var(--sky);">// tech i actually use</div>
+              <div style="font-family:var(--f-hand);font-size:.85rem;color:var(--text);margin-top:2px;">Skills — <span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">honest edition</span></div>
+            </div>
+            <div style="padding:8px 10px;display:flex;flex-direction:column;gap:5px;">
+              <div class="pp-skill-card">
+                <div class="pp-skill-title">⚡ Languages</div>
+                <div class="pp-bar-row"><span>Java</span><div class="pp-bar-track"><div class="pp-bar-fill" style="width:80%;background:var(--grad);"></div></div></div>
+                <div class="pp-bar-row"><span>Python</span><div class="pp-bar-track"><div class="pp-bar-fill" style="width:75%;background:var(--sky);"></div></div></div>
+                <div class="pp-bar-row"><span>C/C++</span><div class="pp-bar-track"><div class="pp-bar-fill" style="width:60%;background:var(--indigo);"></div></div></div>
+              </div>
+              <div class="pp-skill-card">
+                <div class="pp-skill-title">🧠 AI / CV</div>
+                <div class="pp-bar-row"><span>OpenCV</span><div class="pp-bar-track"><div class="pp-bar-fill" style="width:70%;background:var(--sky);"></div></div></div>
+                <div class="pp-bar-row"><span>YOLOv8</span><div class="pp-bar-track"><div class="pp-bar-fill" style="width:68%;background:var(--grad);"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3 — Projects section -->
+        <div class="preview-panel panel-projects">
+          <div class="pp-label">Projects</div>
+          <div class="pp-bar">
+            <div class="pp-dots"><span></span><span></span><span></span></div>
+            <div class="pp-url">anantagnihotri-dev.netlify.app/#projects</div>
+          </div>
+          <div class="pp-body" style="background:#020617;">
+            <div style="padding:10px 10px 6px;">
+              <div style="font-family:var(--f-hand);font-size:.5rem;color:var(--sky);">// projects</div>
+              <div style="font-family:var(--f-hand);font-size:.85rem;color:var(--text);margin-top:2px;">Things I've <span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">actually built</span></div>
+            </div>
+            <div style="padding:0 8px 8px;display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+              <!-- Phone detector mini card -->
+              <div class="pp-proj-card">
+                <div class="pp-proj-img" style="background:linear-gradient(135deg,#020617,#0f172a);position:relative;overflow:hidden;">
+                  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 8px,rgba(56,189,248,.05) 8px,rgba(56,189,248,.05) 9px)"></div>
+                  <div style="position:relative;z-index:1;border:1px solid #e63946;border-radius:3px;padding:3px 6px;font-size:.38rem;color:#e63946;font-weight:700;letter-spacing:.06em;">📵 PHONE RAKHHHH!</div>
+                  <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--sky),transparent);animation:scan 2s linear infinite;"></div>
+                </div>
+                <div class="pp-proj-info">
+                  <div style="font-size:.38rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">01 — CV</div>
+                  <div style="font-family:var(--f-hand);font-size:.62rem;color:var(--text);">AI Phone Detector 📵</div>
+                  <div class="pp-line" style="width:90%;margin-top:3px;"></div>
+                  <div class="pp-line" style="width:75%;"></div>
+                </div>
+              </div>
+              <!-- Monkey meme mini card -->
+              <div class="pp-proj-card">
+                <div class="pp-proj-img pp-meme-grid">
+                  <img src="images/thumbs_up.jpg" alt="thumbs up"/>
+                  <img src="images/pointing.jpg" alt="pointing"/>
+                  <img src="images/neutral.jpg" alt="neutral"/>
+                  <img src="images/thinking.jpg" alt="thinking"/>
+                </div>
+                <div class="pp-proj-info">
+                  <div style="font-size:.38rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">02 — Gesture</div>
+                  <div style="font-family:var(--f-hand);font-size:.62rem;color:var(--text);">Monkey Meme System 🐵</div>
+                  <div class="pp-line" style="width:90%;margin-top:3px;"></div>
+                  <div class="pp-line" style="width:70%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Card body -->
+      <div class="proj-body">
+        <div class="proj-num">03 — web development</div>
+        <div class="proj-name">This Portfolio Website 🌐</div>
+        <p class="proj-desc">You're literally looking at the project right now. Built from scratch — zero templates, zero Wix, zero drag-and-drop. Pure HTML, CSS, and JS with custom cursor, 3D card tilt, proximity animations, scroll reveals, and a typewriter effect.</p>
+        <div class="proj-quote">
+          <p>"Curiosity helped me build this, but every design decision, every piece of content, every Hindi comment — that's all me." 😄</p>
+        </div>
+        <div class="case-mini">
+          <div class="cm-row"><strong>Highlights →</strong> Magnetic buttons, proximity-based card straightening, animated ticker, pill navbar, scroll-triggered skill bars, custom lerp cursor.</div>
+          <div class="cm-row"><strong>Deployed on →</strong> Netlify. Custom domain setup. Fast load, zero cost. That's how we do it as broke students. 💀</div>
+        </div>
+        <div class="proj-tags">
+          <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Netlify</span><span class="ptag">CSS Animations</span><span class="ptag">IntersectionObserver</span>
+        </div>
+        <div class="plinks">
+          <a href="https://anantagnihotri-dev.netlify.app" target="_blank" class="plink" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--sky);">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Site
+          </a>
+          <a href="https://github.com/anantxch-cyber" target="_blank" class="plink plink-gh">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
         </div>
       </div>
-      <a href="https://github.com/anantxch-cyber" target="_blank" class="plink plink-gh" style="margin-left:auto;"><i class="fa-brands fa-github"></i></a>
     </div>
 
   </div>
@@ -1064,6 +1356,14 @@
     <div class="cert-card" onclick="openModal('images/aws-scd-cert.jpg')">
       <div class="cert-img"><img src="images/aws-scd-cert.jpg" alt="AWS Cloud Computing" loading="lazy"/><div class="cert-hover"><span>Click to zoom ↗</span></div></div>
       <div class="cert-body"><div class="cert-org">AWS Student Community</div><div class="cert-ttl">Cloud Computing Day</div></div>
+    </div>
+    <div class="cert-card" onclick="openModal('images/intro_to_gen_ai.png')" style="grid-column: 1 / 2; margin-left: auto; margin-right: auto; width: 100%;">
+      <div class="cert-img"><img src="images/intro_to_gen_ai.png" alt="Microsoft Intro to Gen AI" loading="lazy"/><div class="cert-hover"><span>Click to zoom ↗</span></div></div>
+      <div class="cert-body"><div class="cert-org" style="color:#00a4ef;">Microsoft</div><div class="cert-ttl">Introduction to Generative AI & Agents</div></div>
+    </div>
+    <div class="cert-card" onclick="openModal('images/overview_of_ai_.png')" style="grid-column: 3 / 4; margin-left: auto; margin-right: auto; width: 100%;">
+      <div class="cert-img"><img src="images/overview_of_ai_.png" alt="Microsoft Overview of AI" loading="lazy"/><div class="cert-hover"><span>Click to zoom ↗</span></div></div>
+      <div class="cert-body"><div class="cert-org" style="color:#00a4ef;">Microsoft</div><div class="cert-ttl">Overview of AI Concepts</div></div>
     </div>
   </div>
 </section>
@@ -1108,7 +1408,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="handfoot">Made with <span class="fhrt">♥</span>, OpenCV, and way too much chai ☕</span>
+  <span class="handfoot">Made with <span class="fhrt">♥</span>, OpenCV, and way too much coffee ☕</span>
   <span style="font-size:.8rem;">© 2026 Anant Kumar Agnihotri</span>
   <div style="display:flex;gap:18px;">
     <a href="https://github.com/anantxch-cyber" target="_blank"><i class="fa-brands fa-github"></i></a>
