@@ -7,7 +7,7 @@ I am a 2nd year B.Tech CSE (AI & ML) student, passionate about Web Development a
 Currently focused on building strong fundamentals and real-world projects.
 
 ## 🌐 Live Portfolio
-👉 https://anantagnihotri.netlify.app
+👉 [https://anantagnihotri.netlify.app](https://anantagnihotri-dev.netlify.app)
 
 ## 🛠️ Tech Stack
 - HTML5  
